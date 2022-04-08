@@ -1,6 +1,11 @@
 <?php
 
+
 try {
+    $senha = 'madruga';
+    $salt = "(s35avd5h3afasd)";
+    $senha = hash ('sha256', $senha.$salt);
+
     $username = "quiosque";
     $password = "nJom.dv/(5MKhf)X";
     $pdo = new PDO('mysql:host=localhost;dbname=quiosque', $username, $password);
@@ -11,8 +16,8 @@ try {
     $stmt->execute(array(
         ':nome' => 'Jose2',
         ':sobrenome' => 'Mujica1',
-        ':senha' => '1234',
-        ':email' => 'jose@google1.com'
+        ':senha' => "$senha",
+        ':email' => 'jose@gofsogle1.com'
     ));
     echo "Inserido com sucesso";
 } catch (PDOException $e) {
